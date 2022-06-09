@@ -1,0 +1,43 @@
+<!--EJS FILE-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Star Wars Quotes</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <h1>May the node be with you</h1>
+        <form action="/quotes" method="POST">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit</button>
+        </form>
+        <h2> Quotes </h2>
+        <ul class="quotes">
+            <% for(var i = 0; i < quotes.length; i++) {%>
+                <li class="quote">
+                    <span><%= quotes[i].name %> :</span>
+                    <span>"<%= quotes[i].quote %>"</span>
+                </li>
+            <% } %>
+        </ul>
+
+        <div>
+            <h2>Sense the dark side.</h2>
+            <p>replace first quote with a quote written by Darth Vader</p>
+            <button id="update-button">replace</button>
+        </div>
+
+        <div>
+            <h2>Remove the dark side.</h2>
+            <p>Press the button to delete one Darth Vader quote, does nothing if there are no quotes by vader</p>
+            <button id="delete-button">Delete</button>
+        </div>
+
+        <div id="message"></div>
+    <script src="/main.js"></script>
+    </body>
+</html>
